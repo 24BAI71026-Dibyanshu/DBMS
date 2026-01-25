@@ -1,23 +1,45 @@
 CREATE TABLE employee (
-    emp_id INTEGER,
-    emp_name VARCHAR(100),
-    department VARCHAR(100),
-    salary INTEGER,
+    emp_id       INT PRIMARY KEY,
+    emp_name     VARCHAR(50),
+    department   VARCHAR(50),
+    salary       NUMERIC(10,2),
     joining_date DATE
 );
 
-INSERT INTO employee VALUES (201, 'Dibyanshu', 'Admin', 27000, '2019-04-12');
-INSERT INTO employee VALUES (202, 'parv', 'Admin', 38000, '2018-08-25');
-INSERT INTO employee VALUES (203, 'saurabh', 'Development', 45000, '2017-06-10');
-INSERT INTO employee VALUES (204, 'Ansh', 'Development', 18000, '2021-01-05');
-INSERT INTO employee VALUES (205, 'raj', 'Accounts', 52000, '2016-10-19');
-INSERT INTO employee VALUES (206, 'sejal', 'Accounts', 30000, '2020-03-14');
-INSERT INTO employee VALUES (207, 'shubham', 'Marketing', 24000, '2019-11-02');
-INSERT INTO employee VALUES (208, 'yash', 'Marketing', 34000, '2018-05-28');
 
-SELECT department, AVG(salary) AS average_salary
+INSERT INTO employee (emp_id, emp_name, department, salary, joining_date) VALUES
+(101, 'Arjun Malhotra',  'Data Science', 60000, '2022-01-10'),
+(102, 'Pooja Nair',     'Recruitment',  28000, '2021-03-15'),
+(103, 'Siddharth Iyer', 'Backend Dev',  42000, '2020-06-20'),
+(104, 'Meera Kulkarni', 'Accounts',     65000, '2019-09-05'),
+(105, 'Rohan Das',      'HR Operations',24000, '2023-02-12'),
+(106, 'Kavya Menon',    'Auditing',     36000, '2020-11-25'),
+(107, 'Nitin Agarwal',  'Business Dev', 48000, '2021-07-30'),
+(108, 'Ishita Roy',     'Marketing',    26000, '2022-12-01'),
+(109, 'Aditya Kulkarni','Cloud Engg',   52000, '2022-04-18');
+
+
+SELECT * FROM employee;
+
+SELECT department,AVG(salary) AS avg_salary
+FROM employee
+GROUP BY department;
+
+
+SELECT department,AVG(salary) AS avg_salary
+FROM employee
+WHERE salary > 20000
+GROUP BY department;
+
+SELECT department,AVG(salary) AS avg_salary
+FROM employee
+WHERE salary > 20000
+GROUP BY department
+HAVING AVG(salary) > 30000;
+
+SELECT department,AVG(salary) AS avg_salary
 FROM employee
 WHERE salary > 20000
 GROUP BY department
 HAVING AVG(salary) > 30000
-ORDER BY average_salary DESC;
+ORDER BY avg_salary DESC;
