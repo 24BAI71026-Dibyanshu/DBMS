@@ -47,7 +47,7 @@ DBMS_OUTPUT.PUT_LINE is used to display output.
 ---
 
 ## Output : 
-![Output](Screenshot-3/S1.png)
+![Output](Screenshot-3/exp-s1.png)
 
 
 ## Course Outcome
