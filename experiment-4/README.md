@@ -140,6 +140,21 @@ END;
 
 ---
 
+## Output : 
+## IF–ELSE Statement
+![Output](Screenshot-4/1.png)
+
+## IF–ELSIF–ELSE Statement
+![Output](Screenshot-4/2.png)
+
+## ELSIF Ladder
+![Output](Screenshot-4/3.png)
+
+## CASE Statement
+![Output](Screenshot-4/4.png)
+
+---
+
 ## Learning Outcomes
 
 1. Understood the use of conditional control statements in PL/SQL.
