@@ -1,0 +1,22 @@
+CREATE OR REPLACE FUNCTION check_stock()
+RETURNS TRIGGER AS $$
+DECLARE
+    available_stock INT;
+BEGIN
+    SELECT stock_qty INTO available_stock
+    FROM Products
+    WHERE product_id = NEW.product_id;
+
+    IF NEW.quantity > available_stock THEN
+        RAISE EXCEPTION 'Not enough stock!';
+    END IF;
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER before_order_insert
+BEFORE INSERT ON Orders
+FOR EACH ROW
+EXECUTE FUNCTION check_stock();
